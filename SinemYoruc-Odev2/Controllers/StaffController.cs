@@ -35,6 +35,10 @@ namespace SinemYoruc_Odev2.Controllers
         {
             ActionResult<List<Staff>> list = GetList();  //listenin elemanlari alindi
             Staff staff = list.Value.Where(x => x.Id == id).FirstOrDefault(); //staffin id'si alindi
+            if(staff == null)
+            {
+                return NotFound();
+            }
             return new ActionResult<Staff>(staff); //id'si alinan staff donduruldu
         }
 

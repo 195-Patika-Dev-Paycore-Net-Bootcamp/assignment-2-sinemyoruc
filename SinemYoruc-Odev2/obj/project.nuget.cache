@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QflEpROPb4xHCfgK1bED85VDQAPaIxKtgjuoeONYuOTP1sHvakiFmOh9SyZpyIZ4zWxF5kEKtXkPsXeenIdlog==",
+  "dgSpecHash": "7XbZddsbYRdNu3+JjjutEoAsaEHuO6iY8kueRc4Uf8eLfnYCvydqiqbCwL7tp/cA5MLNqhVxPrJggPLQD66mGw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sinem\\OneDrive\\Masaüstü\\Odev2\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\SinemYoruc-Odev2\\SinemYoruc-Odev2.csproj",
+  "projectFilePath": "C:\\Users\\sinem\\OneDrive\\Masaüstü\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\SinemYoruc-Odev2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sinem\\.nuget\\packages\\fluentvalidation\\11.2.0\\fluentvalidation.11.2.0.nupkg.sha512",
     "C:\\Users\\sinem\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

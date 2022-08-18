@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sinem\\OneDrive\\Masaüstü\\Odev2\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\SinemYoruc-Odev2\\SinemYoruc-Odev2.csproj": {}
+    "C:\\Users\\sinem\\OneDrive\\Masaüstü\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\SinemYoruc-Odev2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sinem\\OneDrive\\Masaüstü\\Odev2\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\SinemYoruc-Odev2\\SinemYoruc-Odev2.csproj": {
+    "C:\\Users\\sinem\\OneDrive\\Masaüstü\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\SinemYoruc-Odev2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sinem\\OneDrive\\Masaüstü\\Odev2\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\SinemYoruc-Odev2\\SinemYoruc-Odev2.csproj",
+        "projectUniqueName": "C:\\Users\\sinem\\OneDrive\\Masaüstü\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\SinemYoruc-Odev2.csproj",
         "projectName": "SinemYoruc-Odev2",
-        "projectPath": "C:\\Users\\sinem\\OneDrive\\Masaüstü\\Odev2\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\SinemYoruc-Odev2\\SinemYoruc-Odev2.csproj",
+        "projectPath": "C:\\Users\\sinem\\OneDrive\\Masaüstü\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\SinemYoruc-Odev2.csproj",
         "packagesPath": "C:\\Users\\sinem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sinem\\OneDrive\\Masaüstü\\Odev2\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\SinemYoruc-Odev2\\obj\\",
+        "outputPath": "C:\\Users\\sinem\\OneDrive\\Masaüstü\\assignment-2-sinemyoruc\\SinemYoruc-Odev2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
