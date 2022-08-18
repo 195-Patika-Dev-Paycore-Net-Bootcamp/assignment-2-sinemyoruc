@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace SinemYoruc_Odev2.Controllers
 {
 
-    [Route("api/[controller]s")]
+    [Route("[controller]s")]
     [ApiController]
     public class StaffController : ControllerBase
     {
         List<Staff> list = new(); //Staff turunde yeni nesne olusturuldu
         public StaffController()
         {
-            list.Add(new Staff { Id = 1, Name = "Deny", Lastname = "Sellen", DateOfBirth = new DateTime(1989, 1, 1), Email = "deny@gmail.com", PhoneNumber = "+90555443366", Salary = 4450 }); //Listeye eleman eklendi
+            list.Add(new Staff { Id = 1, Name = "Deny", Lastname = "Sellen", DateOfBirth = new DateTime(1989, 01, 01).ToShortDateString(), Email = "deny@gmail.com", PhoneNumber = "+90555443366", Salary = 4450 }); //Listeye eleman eklendi
         }
         private ActionResult<List<Staff>> GetList() //Listenin elemanlarini almasi icin genel bir method yazildi
         {

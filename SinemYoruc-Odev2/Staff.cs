@@ -20,17 +20,15 @@ namespace SinemYoruc_Odev2
         public string Lastname { get; set; }
 
 
-        //[RegularExpression(@"[0-9]{2}[\/\-\.][0-9]{2}[\/\-\.][0-9]{2,4}")]       //DateTime formatina uymadigi için hata aliyor, degisken string olursa calisir
-        [DataType(DataType.Date)]
+        [RegularExpression(@"[0-9]{2}[\-\/\.][0-9]{2}[\/\-\.][0-9]{2,4}")]  //01-01-1989 formati icin yapildi
         [Range(typeof(DateTime), "11/11/1945", "10/10/2002")] //dogum tarihi 11/11/1945 ve 10/10/2002 arasinda olmali
         [Required]
-        public DateTime DateOfBirth { get; set; }
+         public string DateOfBirth { get; set; }
 
 
          [Required]
          [EmailAddress(ErrorMessage = "Email address is not valid.")] //@ ve . kontrolu yapiliyor
-        [RegularExpression(@"^[a-zA-Z]*$")]
-        public string Email { get; set; }
+         public string Email { get; set; }
 
 
 
