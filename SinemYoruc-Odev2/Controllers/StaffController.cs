@@ -15,6 +15,8 @@ namespace SinemYoruc_Odev2.Controllers
         public StaffController()
         {
             list.Add(new Staff { Id = 1, Name = "Deny", Lastname = "Sellen", DateOfBirth = new DateTime(1989, 01, 01).ToShortDateString(), Email = "deny@gmail.com", PhoneNumber = "+90555443366", Salary = 4450 }); //Listeye eleman eklendi
+            list.Add(new Staff { Id = 2, Name = "Ashley", Lastname = "Brown", DateOfBirth = new DateTime(1970, 10, 09).ToShortDateString(), Email = "ashley@gmail.com", PhoneNumber = "+905578962145", Salary = 4250 }); //Listeye eleman eklendi
+            list.Add(new Staff { Id = 3, Name = "Alex", Lastname = "Hunter", DateOfBirth = new DateTime(1995, 03, 02).ToShortDateString(), Email = "alex@gmail.com", PhoneNumber = "+90554856215", Salary = 5550 }); //Listeye eleman eklendi
         }
         private ActionResult<List<Staff>> GetList() //Listenin elemanlarini almasi icin genel bir method yazildi
         {
