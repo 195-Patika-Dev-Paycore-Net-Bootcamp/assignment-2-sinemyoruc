@@ -17,4 +17,4 @@ Daha sonra uygulamayı çalıştırabilirsiniz.
 ## Outputs
 
 
-
+![](SinemYoruc-Odev2/Screenshots/swagger-successfull.png)
