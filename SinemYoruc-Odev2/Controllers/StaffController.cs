@@ -37,9 +37,9 @@ namespace SinemYoruc_Odev2.Controllers
         {
             ActionResult<List<Staff>> list = GetList();  //listenin elemanlari alindi
             Staff staff = list.Value.Where(x => x.Id == id).FirstOrDefault(); //staffin id'si alindi
-            if(staff == null)
+            if (staff == null)
             {
-                return NotFound();
+                return NotFound("Staff is not found");
             }
             return new ActionResult<Staff>(staff); //id'si alinan staff donduruldu
         }
@@ -58,10 +58,21 @@ namespace SinemYoruc_Odev2.Controllers
         {
             List<Staff> list = GetList().Value; //listenin elemanlari alindi
             Staff staff = list.Where(x => x.Id == id).FirstOrDefault(); //Guncellenecek staffin idsi alindi
-            list.Remove(staff); //Mevcut staff silindi
-            updateStaff.Id = id; //girilen id ile yeni staffin idsi esitlendi
-            list.Add(updateStaff); //yeni staff listeye eklendi
-            return new ActionResult<List<Staff>>(list.ToList()); //Yeni liste donduruldu
+            if(staff == null) //idsi verilen staff mevcut degilse hata dondur
+            {
+                return NotFound("Staff is not found");
+            }
+            else //verilen parametrelerin degerleri default degerlere esit degilse guncelleme yapiyoruz
+            {
+                staff.Id = updateStaff.Id != default ? updateStaff.Id : staff.Id;     //normalde id degismemeli fakat parametre olarak geldigi icin onu da guncelledim
+                staff.Name = updateStaff.Name != default ? updateStaff.Name : staff.Name;
+                staff.Lastname = updateStaff.Lastname != default ? updateStaff.Lastname : staff.Lastname;
+                staff.DateOfBirth = updateStaff.DateOfBirth != default ? updateStaff.DateOfBirth : staff.DateOfBirth;
+                staff.Email = updateStaff.Email != default ? updateStaff.Email : staff.Email;
+                staff.PhoneNumber = updateStaff.PhoneNumber != default ? updateStaff.PhoneNumber : staff.PhoneNumber;
+                staff.Salary = updateStaff.Salary != default ? updateStaff.Salary : staff.Salary;
+                return new ActionResult<List<Staff>>(list.ToList()); //Yeni liste donduruldu
+            }
         }
 
         [HttpDelete("{id}")]
@@ -69,8 +80,16 @@ namespace SinemYoruc_Odev2.Controllers
         {
             List<Staff> list = GetList().Value; //listenin elemanlari alindi
             Staff staff = list.Where(x => x.Id == id).FirstOrDefault(); //silinecek staffin idsi alindi
-            list.Remove(staff); //silme islemi
-            return new ActionResult<List<Staff>>(list); //Yeni liste donduruldu
+            if(staff == null) //idsi verilen staff mevcut degilse hata dondur
+            {
+                return NotFound("Staff is not found");
+            }
+            else
+            {
+                list.Remove(staff); //silme islemi
+                return new ActionResult<List<Staff>>(list); //Yeni liste donduruldu
+            }
+            
         }
     }
 }
