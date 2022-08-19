@@ -27,7 +27,8 @@ namespace SinemYoruc_Odev2
 
 
          [Required]
-         [EmailAddress(ErrorMessage = "Email address is not valid.")] //@ ve . kontrolu yapiliyor
+         [EmailAddress]
+         [RegularExpression(@"^[a-zA-Z]+\@+[a-zA-Z]+\.+[a-zA-Z]*$")] //@, nokta ve harf haric karakter girilmemesini sagliyor
          public string Email { get; set; }
 
 
