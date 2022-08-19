@@ -11,21 +11,21 @@ namespace SinemYoruc_Odev2
         public long Id { get; set; }
 
         //Name alani 20 ve 120 karakter arasinda olmali
-        [StringLength(maximumLength: 120, MinimumLength = 20, ErrorMessage = "Name must be range in 20-120")]
+        [StringLength(maximumLength: 120, MinimumLength = 3, ErrorMessage = "Name must be range in 3-120")]
         //Rakamlara ve ozel karakterlere izin verilmiyor, bosluklara izin veriliyor
         [RegularExpression(@"^[a-zA-Z\s]*$", ErrorMessage = ("Please do not enter numbers and special characters"))]
         public string Name { get; set; }
 
 
         //Lastname alani 20 ve 120 karakter arasinda olmali
-        [StringLength(maximumLength: 120, MinimumLength = 20, ErrorMessage = "Lastname must be range in 20-120")]
+        [StringLength(maximumLength: 120, MinimumLength = 3, ErrorMessage = "Lastname must be range in 3-120")]
         //Rakamlara ve ozel karakterlere izin verilmiyor, bosluklara izin veriliyor
         [RegularExpression(@"^[a-zA-Z\s]*$", ErrorMessage = ("Please do not enter numbers and special characters"))]
         public string Lastname { get; set; }
 
 
         //01-01-1989 formati icin yapildi
-        [RegularExpression(@"[0-9]{2}[\-\/\.][0-9]{2}[\/\-\.][0-9]{2,4}")]
+        [RegularExpression(@"[0-9]{2}[\-\/\.][0-9]{2}[\/\-\.][0-9]{2,4}", ErrorMessage = "Please enter valid date")]
         //dogum tarihi 11/11/1945 ve 10/10/2002 arasinda olmali
         [Range(typeof(DateTime), "11/11/1945", "10/10/2002")]
         [Required]
