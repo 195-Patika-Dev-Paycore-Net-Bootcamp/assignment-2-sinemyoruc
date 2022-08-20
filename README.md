@@ -17,7 +17,7 @@ Daha sonra uygulamayı çalıştırabilirsiniz.
 
 ## Outputs
 
-### Successfull
+### Successful
 ![Swagger](SinemYoruc-Odev2/Screenshots/swagger-successfull.png)
 ![Postman](SinemYoruc-Odev2/Screenshots/postman-successfull.png)
 
