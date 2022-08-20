@@ -1,5 +1,6 @@
 # Validation in .NET
 Bu projede .NET'de özel validasyonlar yapılarak Http Get, GetById, Post, Put ve Delete methodları yazılmıştır.
+Validasyonları Staff.cs , methodları StaffController.cs dosyalarında görebilirsiniz.
 
 ## Installation
 Öncelikle projeyi kolonlayın.
