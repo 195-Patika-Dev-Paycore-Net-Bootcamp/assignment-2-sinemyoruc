@@ -11,13 +11,40 @@ namespace SinemYoruc_Odev2.Controllers
     [ApiController]
     public class StaffController : ControllerBase
     {
-        List<Staff> list = new(); //Staff turunde yeni nesne olusturuldu
-        public StaffController()
+        private static List<Staff> list = new List<Staff> //Staff turunde yeni nesne olusturuldu
         {
-            list.Add(new Staff { Id = 1, Name = "Deny", Lastname = "Sellen", DateOfBirth = new DateTime(1989, 01, 01).ToShortDateString(), Email = "deny@gmail.com", PhoneNumber = "+90555443366", Salary = 4450 }); //Listeye eleman eklendi
-            list.Add(new Staff { Id = 2, Name = "Ashley", Lastname = "Brown", DateOfBirth = new DateTime(1970, 10, 09).ToShortDateString(), Email = "ashley@gmail.com", PhoneNumber = "+905578962145", Salary = 4250 }); //Listeye eleman eklendi
-            list.Add(new Staff { Id = 3, Name = "Alex", Lastname = "Hunter", DateOfBirth = new DateTime(1995, 03, 02).ToShortDateString(), Email = "alex@gmail.com", PhoneNumber = "+90554856215", Salary = 5550 }); //Listeye eleman eklendi
-        }
+            new Staff
+            {
+                Id = 1,
+                Name = "Deny",
+                Lastname = "Sellen",
+                DateOfBirth = new DateTime(1989, 01, 01).ToShortDateString(),
+                Email = "deny@gmail.com",
+                PhoneNumber = "+90555443366",
+                Salary = 4450
+            },
+
+            new Staff {
+                Id = 2,
+                Name = "Ashley",
+                Lastname = "Brown",
+                DateOfBirth = new DateTime(1970, 10, 09).ToShortDateString(),
+                Email = "ashley@gmail.com",
+                PhoneNumber = "+905578962145",
+                Salary = 4250
+            },
+
+            new Staff {
+                Id = 3,
+                Name = "Alex",
+                Lastname = "Hunter",
+                DateOfBirth = new DateTime(1995, 03, 02).ToShortDateString(),
+                Email = "alex@gmail.com",
+                PhoneNumber = "+90554856215",
+                Salary = 5550
+            }
+        };
+
         private ActionResult<List<Staff>> GetList() //Listenin elemanlarini almasi icin genel bir method yazildi
         {
             return new ActionResult<List<Staff>>(list);
@@ -35,8 +62,7 @@ namespace SinemYoruc_Odev2.Controllers
         [HttpGet("GetById/{id}")]
         public ActionResult<Staff> GetById([FromRoute] long id) //id'ye gore listenin istenen elemanini getiren GetById methodu
         {
-            ActionResult<List<Staff>> list = GetList();  //listenin elemanlari alindi
-            Staff staff = list.Value.Where(x => x.Id == id).FirstOrDefault(); //staffin id'si alindi
+            Staff staff = list.Where(x => x.Id == id).FirstOrDefault(); //staffin id'si alindi
             if (staff == null)
             {
                 return NotFound("Staff is not found");
@@ -48,17 +74,23 @@ namespace SinemYoruc_Odev2.Controllers
         [HttpPost]
         public ActionResult<List<Staff>> CreateStaff([FromBody] Staff staff) //Yeni staff ekleyen Post methodu
         {
-            var list = GetList().Value; //listenin elemanlari alindi
-            list.Add(staff); //staff eklendi
-            return new ActionResult<List<Staff>>(list); //Yeni liste donduruldu
+            var staffControl = list.SingleOrDefault(x => x.Id == staff.Id); //girilen id ile listedeki id esit mi?
+            if (staffControl == null) //girilen idye sahip staff yoksa 
+            {
+                list.Add(staff); //yeni staffı listeye ekle
+                return new ActionResult<List<Staff>>(list); //listeyi dondur
+            }
+            else
+            {  //girilen idye sahip staff varsa 
+                return BadRequest("This staff is already exist"); //hata dondur
+            }
         }
 
         [HttpPut]
         public ActionResult<List<Staff>> UpdateStaff(int id, [FromBody] Staff updateStaff) //Staff guncelleyen Put methodu
         {
-            List<Staff> list = GetList().Value; //listenin elemanlari alindi
             Staff staff = list.Where(x => x.Id == id).FirstOrDefault(); //Guncellenecek staffin idsi alindi
-            if(staff == null) //idsi verilen staff mevcut degilse hata dondur
+            if (staff == null) //idsi verilen staff mevcut degilse hata dondur
             {
                 return NotFound("Staff is not found");
             }
@@ -78,9 +110,8 @@ namespace SinemYoruc_Odev2.Controllers
         [HttpDelete("{id}")]
         public ActionResult<List<Staff>> DeleteStaff([FromRoute] int id)
         {
-            List<Staff> list = GetList().Value; //listenin elemanlari alindi
             Staff staff = list.Where(x => x.Id == id).FirstOrDefault(); //silinecek staffin idsi alindi
-            if(staff == null) //idsi verilen staff mevcut degilse hata dondur
+            if (staff == null) //idsi verilen staff mevcut degilse hata dondur
             {
                 return NotFound("Staff is not found");
             }
@@ -89,7 +120,7 @@ namespace SinemYoruc_Odev2.Controllers
                 list.Remove(staff); //silme islemi
                 return new ActionResult<List<Staff>>(list); //Yeni liste donduruldu
             }
-            
+
         }
     }
 }
